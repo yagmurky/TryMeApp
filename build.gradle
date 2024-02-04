@@ -1,0 +1,55 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.2'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.yagmur'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '21'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot Starter Dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// Lombok ve MapStruct Dependencies
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	// Database ve JSON Dependencies
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'com.google.code.gson:gson:2.10.1'
+	// Spring Boot Development ve Test Dependencies
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Servlet API Dependency
+	implementation 'javax.servlet:javax.servlet-api:4.0.1'
+	// Swagger
+	implementation 'org.webjars:swagger-ui:5.10.3'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+	// Cloudinary
+	implementation 'com.cloudinary:cloudinary-core:1.37.0'
+	implementation 'com.cloudinary:cloudinary-http44:1.37.0'
+	// File Upload
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

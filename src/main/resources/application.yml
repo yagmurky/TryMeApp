@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  cloudinary:
+    cloud_name: "dtetpypdr"
+    api_key: "945871418758197"
+    api_secret: "U_keDQ_tPDd9c1ZQAuhl8VAU3eA"
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/TryMeDB
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
